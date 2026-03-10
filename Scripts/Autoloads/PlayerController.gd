@@ -9,3 +9,8 @@ var current_week: int = 1
 
 func set_team(new_team: Team) -> void:
 	team = new_team
+
+## Safety check to make sure the player has all the needed team slots filled out.
+## TODO: Implement properly.
+func is_player_team_valid() -> bool:
+	return true

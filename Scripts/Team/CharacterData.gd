@@ -4,6 +4,9 @@ class_name CharacterData extends Resource
 @export var name: String = "New Name"
 @export var gender: String = ""
 
+## The character's visual.
+var portrait
+
 ## The wrapper containing the character's stats.
 var stats: Stats
 

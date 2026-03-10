@@ -3,6 +3,8 @@ class_name Team extends Resource
 
 signal roster_updated(new_roster: Array[CharacterData])
 
+signal money_changed(new_money: int)
+
 @export var name: String = "New Team"
 @export var roster: Array[CharacterData] = []
 @export var money: int = 0
@@ -15,3 +17,7 @@ func remove_from_roster(person_to_remove: CharacterData) -> void:
 	if roster.has(person_to_remove) == true:
 		roster.erase(person_to_remove)
 	roster_updated.emit(roster)
+
+func add_or_sub_money(amount_to_sub_or_add: int) -> void:
+	money += amount_to_sub_or_add
+	money_changed.emit(money)

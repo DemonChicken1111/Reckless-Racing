@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://ds6npe3w7ohj"]
+
+[ext_resource type="Texture2D" uid="uid://dh6k80l7d7083" path="res://Imported Assets/GUI/positionMarkersWindows.png" id="1_4i306"]
+
+[node name="UI Element Prefab" type="Sprite2D" unique_id=331819347]
+texture = ExtResource("1_4i306")
+hframes = 10
+vframes = 4

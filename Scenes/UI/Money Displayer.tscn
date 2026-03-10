@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://boypauosjpty7"]
+
+[ext_resource type="Script" uid="uid://b3w1s3i6efewv" path="res://Scripts/UI/MoneyDisplayer.gd" id="1_tnjss"]
+
+[node name="Money Displayer" type="PanelContainer" unique_id=1416833278 node_paths=PackedStringArray("_money_label", "_amount_label")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tnjss")
+_money_label = NodePath("MarginContainer/GridContainer/Money Label")
+_amount_label = NodePath("MarginContainer/GridContainer/Amount")
+_displays_money_label = true
+metadata/_custom_type_script = "uid://b3w1s3i6efewv"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1386221508]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=2076569844]
+layout_mode = 2
+columns = 2
+
+[node name="Money Label" type="Label" parent="MarginContainer/GridContainer" unique_id=1125116327]
+layout_mode = 2
+text = "Money:"
+
+[node name="Amount" type="Label" parent="MarginContainer/GridContainer" unique_id=1987082630]
+layout_mode = 2
+text = "000"

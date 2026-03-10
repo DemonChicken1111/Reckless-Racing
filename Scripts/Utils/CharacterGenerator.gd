@@ -14,7 +14,8 @@ static func generate_character() -> CharacterData:
 	new_character.stats = stats
 	
 	# TODO: Set traits
-	
+	if OS.is_debug_build() == true:
+		print("CharacterGenerator :: cost for this character: %s" % [get_cost_for_char(new_character)])
 	return new_character
 
 ## Setup the gender for a character
@@ -27,10 +28,6 @@ static func generate_gender() -> String:
 			gender = "Male"
 		2:
 			gender = "Female"
-	
-	# LOGGER
-	if OS.is_debug_build() == true:
-		print("CharacterGenerator :: Gender: %s" %gender)
 	
 	return gender
 
@@ -58,11 +55,18 @@ static func generate_stats() -> Stats:
 	
 	var stats = Stats.new()
 	stats.stats = stat_dict
-	
-	# LOGGING
-	if OS.is_debug_build() == true:
-		for stat in stat_dict.keys():
-			print("CharacterGenerator :: Stats: %s value was: %s" % [stat, stat_dict[stat].get_calculated_value()])
-	print("\n")
 
 	return stats
+	
+## TODO: Properly implement.
+static func get_cost_for_char(character: CharacterData) -> int:
+	var sum_of_stats: int = 0
+	var stats: Stats = character.stats
+	for stat in stats.stats.keys():
+		match stat:
+			StatHelper.StatTypes.MaxHealth, StatHelper.StatTypes.CurrHealth:
+				continue
+			# Everything else should have the stat added
+			_:
+				sum_of_stats += stats.stats[stat].get_calculated_value()
+	return sum_of_stats

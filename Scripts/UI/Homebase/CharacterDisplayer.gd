@@ -18,3 +18,4 @@ var character: CharacterData
 func set_character(new_c: CharacterData) -> void:
 	character = new_c
 	_name_label.set_text(character.name)
+	# TODO: Update the displayed portrait.
